@@ -42,6 +42,14 @@
 .comment {
     background-color: #a4deff;
     border-radius: 10px;
+    margin: 40px;
+    width: 100%;
+    padding: 15px;
+}
+.comment:hover{
+    cursor: pointer;
+    background-color: #7ccdfc;
+    transition: background-color 0.2s ease-in;
 }
 .infoPost {
     width: 1000px;
@@ -68,8 +76,4 @@
 }
 .bodyComment {
     padding: 10px 0 10px 20px;
-}
-.comment {
-    margin: 40px;
-    width: 100%;
 }

@@ -44,3 +44,6 @@
     flex-direction: column;
     gap: 20px;
 }
+.warning {
+    margin-top: 20px;
+}

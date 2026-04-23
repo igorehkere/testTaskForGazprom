@@ -22,11 +22,13 @@ export function UserDetails () {
             <div className={styles.back}>
                 <Link to='/users'><Button label='Назад'/></Link>
             </div>
-            <div className={styles.infoUser}>
-                <IconDiamond view="link"/>
-                <h1>Name: {userDetail.name}</h1>
-                <p>Email: {userDetail.email}</p>
-                <p>Gender: {userDetail.gender}</p>
+            <div className={styles.container}>
+                <div className={styles.infoUser}>
+                    <IconDiamond view="link"/>
+                    <h1>Name: {userDetail.name}</h1>
+                    <p>Email: {userDetail.email}</p>
+                    <p>Gender: {userDetail.gender}</p>
+                </div>
             </div>
         </div>
     )

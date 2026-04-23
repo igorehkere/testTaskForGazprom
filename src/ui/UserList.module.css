@@ -57,11 +57,22 @@
     padding-left: 20px;
 }
 .infoUser {
-    width: 100%;
+    width: 800px;
     height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     line-height: 2.5;
+    margin-top: 20px;
+    background-color: #a4deff;
+    border-radius: 10px;
+}
+.infoUser:hover {
+    background-color: #7ccdfc;
+    transition: background-color 0.2s ease-in;
+}
+.container {
+    display: flex;
+    justify-content: center;
 }

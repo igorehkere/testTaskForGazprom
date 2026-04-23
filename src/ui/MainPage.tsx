@@ -36,7 +36,12 @@ export function MainPage() {
         localStorage.setItem('accessToken', token);
         setIsSubmitted(true);
     };
-
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSubmitToken();
+        }
+    };
     return (
         <div className={styles.tools}>
             <div className={styles.inputToken}>
@@ -46,6 +51,7 @@ export function MainPage() {
                     value={token}
                     placeholder="Введите accessToken"
                     onChange={( value ) => handleTokenChange(value)}
+                    onKeyDown={handleKeyDown} 
                 />
                 <IconHealth onClick={handleSubmitToken} view='ghost' className={styles.accessButton}/>
             </div>

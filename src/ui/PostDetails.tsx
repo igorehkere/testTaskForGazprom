@@ -33,8 +33,8 @@ export function PostDetails () {
                             return (
                                 <div key={comment.id} className={styles.comment}>
                                     <div className={styles.titleComment}>
-                                        <p>{comment.name}({comment.id})</p>
-                                        <p>{comment.email}</p>
+                                        <p>{comment.name}({comment.id}),</p>
+                                        <p>Email: {comment.email}</p>
                                     </div>
                                     <div className={styles.bodyComment}>
                                         <p>{comment.body}</p>
