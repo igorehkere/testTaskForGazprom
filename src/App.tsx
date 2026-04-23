@@ -8,9 +8,9 @@ import { UserDetails } from './ui/UserDetails';
 import { PostDetails } from './ui/PostDetails';
 
 function App() {
-
+  const basename = '/testTaskForGazprom';
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Theme preset={presetGpnDefault}>
         <Routes>
           <Route path='/' element={<MainPage/>}/>
