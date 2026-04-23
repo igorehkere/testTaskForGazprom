@@ -2,27 +2,69 @@ import { TextField } from '@consta/uikit/TextField';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './MainPage.module.css'
-import { IconSearchStroked } from '@consta/icons/IconSearchStroked';
 import { Button } from '@consta/uikit/Button';
-
+import { useEffect } from 'react';
+import { IconHealth } from '@consta/icons/IconHealth';
 
 export function MainPage() {
-    const [value, setValue] = useState<string | null | undefined>(undefined);
+    const [token, setToken] = useState<string>('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    useEffect(() => {
+        const savedToken = localStorage.getItem('accessToken');
+        if (savedToken) {
+            setToken(savedToken);
+            setIsSubmitted(true); 
+        }
+    }, []);
+
+    const handleTokenChange = (newValue: string | null | undefined) => {
+        const value = newValue || '';
+        setToken(value);
+    };
+
+    const handleClearToken = () => {
+        setToken('');
+        setIsSubmitted(false);
+        localStorage.removeItem('accessToken');
+    };
+
+    const handleSubmitToken = () => {
+        if (!token.trim()) {
+            alert('Введите токен');
+            return;
+        }
+        localStorage.setItem('accessToken', token);
+        setIsSubmitted(true);
+    };
+
     return (
         <div className={styles.tools}>
             <div className={styles.inputToken}>
                 <TextField
                     type='password'
                     required 
-                    value={value}
+                    value={token}
                     placeholder="Введите accessToken"
-                    onChange={( value ) => setValue(value)}
+                    onChange={( value ) => handleTokenChange(value)}
                 />
-                <IconSearchStroked view="ghost" />
+                <IconHealth onClick={handleSubmitToken} view='ghost' className={styles.accessButton}/>
             </div>
-            <div className={styles.changeMode}>
-                <Link to='/users' className={styles.linkButton}><Button label="Users" className={styles.btns}/></Link>
-                <Link to='/posts' className={styles.linkButton}><Button label="Posts" className={styles.btns}/></Link>
+             <div className={styles.startButton}>
+                {isSubmitted ? (
+                    <>
+                        <div className={styles.changeMode}>
+                            <Link to="/users" className={styles.linkButton}>
+                                <Button label="Users" className={styles.btns} />
+                            </Link>
+                            <Link to="/posts" className={styles.linkButton}>
+                                <Button label="Posts" className={styles.btns} />
+                            </Link>
+                        </div>
+                        <Button label="Очистить токен" onClick={handleClearToken} />
+                    </>
+                ) : (
+                    <p className={styles.warning}>Введите access token для продолжения</p>
+                )}
             </div>
 
         </div>

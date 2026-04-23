@@ -1,0 +1,75 @@
+.header {
+    background-color: rgb(0, 162, 255);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 50px;
+}
+.load {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+.postList {
+    padding: 30px 100px 30px 100px;
+    display: flex;
+    justify-content: center;
+}  
+.postTable {
+    width: 100%;
+
+}
+.postTable th,
+.postTable td {
+    border: 1px solid #a0d6fa;
+    padding: 12px;
+    text-align: center;
+}
+.postTable tr:hover {
+    background-color: #a4deff;
+    cursor: pointer;
+}
+.back {
+    width: 100%;
+    background-color: #a0d6fa;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.comment {
+    background-color: #a4deff;
+    border-radius: 10px;
+}
+.infoPost {
+    width: 1000px;
+}
+.infoPost h1 {
+    text-align: center;
+}
+.comments {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 0 0;
+    
+}
+.titleComment {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.titleComment p {
+    color: grey;
+}
+.bodyComment p {
+    font-size: 20px;
+}
+.bodyComment {
+    padding: 10px 0 10px 20px;
+}
+.comment {
+    margin: 40px;
+    width: 100%;
+}

@@ -1,27 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { Loader } from '@consta/uikit/Loader';
 import styles from './UserList.module.css';
 import { Button } from '@consta/uikit/Button';
 import { Link } from "react-router-dom";
 import { IconDiamond } from '@consta/icons/IconDiamond';
-
-//IconDiamond
-
-type userDetail = {
-    name: string,
-    id: number,
-    gender: string,
-    email: string,
-}
+import { useUserDetails } from "../bll/useUserDetails";
 
 export function UserDetails () {
     const {id} = useParams();
-    const [userDetail, setUserDetail] = useState<null | userDetail>(null);
-    
-    useEffect(() => {
-        fetch(`https://gorest.co.in/public/v2/users/${id}`).then(res => res.json()).then(js => setUserDetail(js))
-    }, [])
+    const { userDetail } = useUserDetails(id);
     console.log(userDetail)
     if (userDetail === null) {
         return (

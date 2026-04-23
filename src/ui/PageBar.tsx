@@ -2,7 +2,7 @@ import styles from './UserList.module.css'
 import { FieldGroup } from '@consta/uikit/FieldGroup';
 import { Button } from '@consta/uikit/Button';
 import { Select } from '@consta/uikit/Select';
-import { useState } from 'react';
+import { usePage } from '../bll/usePage';
 
 type props = {
     changePage: (page: number) => void,
@@ -15,8 +15,7 @@ export function PageBar({ changePage, changeItemsCount }: props) {
         { label: '25', value: 25 },
         { label: '50', value: 50 }
     ];
-    const [selectItem, setSelectItem] = useState<{ label: string; value: number } | null>({ label: '10', value: 10 });
-    const [numPage, setNumPage] = useState(1);
+    const {selectItem, setSelectItem, numPage, setNumPage} = usePage();
     return (
         <div className={styles.pageBar}>
             <FieldGroup form="round" size="m" className={styles.fieldGr}>

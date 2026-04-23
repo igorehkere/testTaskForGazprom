@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { UsersPage } from './ui/UsersPage';
 import { PostsPage } from './ui/PostsPage';
 import { UserDetails } from './ui/UserDetails';
+import { PostDetails } from './ui/PostDetails';
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
           <Route path='/' element={<MainPage/>}/>
           <Route path='/users' element={<UsersPage/>}/>
           <Route path='/posts' element={<PostsPage/>}/>
-          <Route path='/user/:id' element={<UserDetails/>}/>
+          <Route path='/users/:id' element={<UserDetails/>}/>
+          <Route path='/posts/:id' element={<PostDetails/>}/>
         </Routes>
       </Theme>
     </BrowserRouter>

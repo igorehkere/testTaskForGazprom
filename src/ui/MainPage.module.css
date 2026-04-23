@@ -6,6 +6,9 @@
     align-items: center;
     gap: 10px;
 }
+.accessButton:hover {
+    cursor: pointer;
+}
 .btns {
     width: 200px !important;
     height: 500px !important;
@@ -35,4 +38,9 @@
 .linkButton button {
     width: 100% !important;
     height: 100% !important;
+}
+.startButton {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

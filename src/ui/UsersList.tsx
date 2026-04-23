@@ -1,29 +1,18 @@
-import { useState, useEffect } from "react"
 import { Loader } from '@consta/uikit/Loader';
 import styles from './UserList.module.css'
 import { getName } from "../utils/getName";
 import { useNavigate } from "react-router-dom";
+import { useUsers } from "../bll/useUsers";
 
-type user = {
-    name: string,
-    email: string,
-    id: number,
-    gender: string,
-    status: string,
-}
 type props = {
     page: number,
     cntItms: number,
 }
 
 export function UsersList ({ page, cntItms }: props) {
-    const [users, setUsers] = useState<null | Array<user>>(null);
+    
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setUsers(null);
-        fetch(`https://gorest.co.in/public/v2/users?page=${page}&per_page=${cntItms}`).then(res => res.json()).then(js => setUsers(js));
-    }, [page, cntItms])
+    const { users } = useUsers(page, cntItms)
 
     
     if (users === null) {
@@ -54,7 +43,7 @@ export function UsersList ({ page, cntItms }: props) {
                     {users.map((user) => {
                         const nameUs = getName(user.name)
                         return (
-                            <tr key={user.id} onClick={() => navigate(`/user/${user.id}`)}>
+                            <tr key={user.id} onClick={() => navigate(`/users/${user.id}`)}>
                                 <td>{nameUs.firstName}</td>
                                 <td>{nameUs.lastName}</td>
                                 <td>{user.email}</td>
